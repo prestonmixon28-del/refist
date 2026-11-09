@@ -18,6 +18,16 @@ function validatePromoCode(promoCode) {
     return promoCodePattern.test(promoCode);
 }
 
+function formatPhoneNumber(phone) {
+    const phonePattern = /^(\d{3})(\d{3})(\d{4})$/;
+
+    if (!validatePhone(phone)) {
+        return null;
+    }
+
+    return phone.replace(phonePattern, "($1) $2-$3");
+}
+
 console.log("-- Name Test --");
 
 console.log(validateName("John Doe")); 
@@ -45,3 +55,10 @@ console.log(validatePromoCode("abc123"));
 console.log(validatePromoCode("A1B2C3"));
 console.log(validatePromoCode("1234567"));
 console.log(validatePromoCode("!@#$%^"));
+
+console.log("-- Phone Number Formatting Test --");
+
+console.log(formatPhoneNumber("1234567890"));
+console.log(formatPhoneNumber("12345"));
+console.log(formatPhoneNumber("12345678901"));
+console.log(formatPhoneNumber("123-456-7890"));
