@@ -173,3 +173,31 @@ console.log("--- Registration Results ---");
 for (const user of sampleUser) {
     const result = proccessRegistration(user);
 }
+
+console.log("--- Edge case tests ---");
+
+const edgeCases = [
+    {
+        name: "John Doe",
+        username: "john_doe",
+        phone: "1234567890",
+        promoCode: "SUMMER"
+    },
+    {
+        name: "Jane Smith",
+        username: "jane_smith",
+        phone: "1234567890",
+        promoCode: "SUMMER"
+    },
+    {
+        name: "Invalid Name 123",
+        username: "invalid_user",
+        phone: "1234567890",
+        promoCode: "SUMMER"
+    },
+];
+
+for (const user of edgeCases) {
+    const result = proccessRegistration(user);
+    console.log(result);
+}
